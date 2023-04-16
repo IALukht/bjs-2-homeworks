@@ -16,8 +16,7 @@ Student.prototype.setSubject = function (subjectName) {
 
 Student.prototype.addMarks = function (...marks) {
   if (this.marks) {  
-  for(mark of marks)
-  this.marks.push(mark);
+  this.marks.push(...marks); /*метод push можно передавать не один элемент, а сразу несколько. Так что, все оценки можно добавлять в одно действие (без цикла), только с помощью спред оператора: this.marks.push(...marks);*/
  }
 }
 
