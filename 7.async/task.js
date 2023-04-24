@@ -12,7 +12,7 @@ class AlarmClock{
             console.warn("Уже присутствует звонок на это же время");
         } 
         
-        this.alarmCollection.push ({callback, time, canCall: true});
+        this.alarmCollection.push({callback, time, canCall: true});
     }
 
     removeClock (time){
@@ -20,13 +20,13 @@ class AlarmClock{
     }
 
     getCurrentFormattedTime() {
-        let currentDate = new Date().toLocaleTimeString("ru", {hour: "2-digit", minute: "2-digit"});
-          return currentDate;
+        let currentTime = new Date().toLocaleString("ru", {hour: 'numeric', minute: 'numeric'});
+            return currentTime;
     }
 
    start(){
         if (this.intervalId !== null){
-        return;
+            return;
         }
         this.intervalId = setInterval(() => this.alarmCollection.forEach(element => {
             if (element.time === this.getCurrentFormattedTime() && element.canCall) {
